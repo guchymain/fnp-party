@@ -1,0 +1,86 @@
+@import "tailwindcss";
+@import "@fontsource/inter/400.css";
+@import "@fontsource/inter/500.css";
+@import "@fontsource/inter/600.css";
+@import "@fontsource/inter/700.css";
+@import "@fontsource/sora/600.css";
+@import "@fontsource/sora/700.css";
+@import "@fontsource/sora/800.css";
+
+@theme {
+  --font-sans: "Inter", system-ui, sans-serif;
+  --font-display: "Sora", "Inter", system-ui, sans-serif;
+
+  --color-brand-50: #eafaf3;
+  --color-brand-100: #cdf1e0;
+  --color-brand-200: #9be3c2;
+  --color-brand-300: #63cea0;
+  --color-brand-400: #33b483;
+  --color-brand-500: #0b6e4f;
+  --color-brand-600: #095c42;
+  --color-brand-700: #084a36;
+  --color-brand-800: #073a2b;
+  --color-brand-900: #052a1f;
+
+  --color-gold-50: #fdf6e9;
+  --color-gold-100: #fbe9c2;
+  --color-gold-200: #f7d68c;
+  --color-gold-300: #f2a93b;
+  --color-gold-400: #e6941f;
+  --color-gold-500: #c67912;
+  --color-gold-600: #9c5f0e;
+
+  --color-ink-50: #f7f7f8;
+  --color-ink-100: #eeeef0;
+  --color-ink-400: #6b7280;
+  --color-ink-600: #374151;
+  --color-ink-800: #1f2733;
+  --color-ink-900: #111827;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #fafaf7;
+  color: var(--color-ink-900);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-display);
+}
+
+/* Visible keyboard focus everywhere — accessibility baseline */
+:focus-visible {
+  outline: 3px solid var(--color-gold-300);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  z-index: 100;
+  background: var(--color-brand-500);
+  color: white;
+  padding: 0.75rem 1.25rem;
+  border-radius: 0 0 8px 0;
+  font-weight: 600;
+}
+
+.skip-link:focus {
+  left: 0;
+}
+
+.sr-only-focusable:not(:focus) {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
