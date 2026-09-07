@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import { CalendarCheck, Clock, MapPin } from "lucide-react";
 import PageHeader from "../components/PageHeader.jsx";
 import Button from "../components/Button.jsx";
+import Photo from "../components/Photo.jsx";
 import { formatDate } from "../utils/formatters.js";
 import { events } from "../data/events.js";
 import { useAuth } from "../context/AuthContext.jsx";
@@ -27,6 +28,13 @@ export default function EventDetail() {
     <>
       <PageHeader eyebrow={event.type} title={event.title} />
       <section className="mx-auto max-w-2xl px-4 py-14 sm:px-6">
+        <div className="relative mb-6 aspect-[16/9] overflow-hidden rounded-2xl bg-ink-100">
+          <Photo
+            src={event.image}
+            alt=""
+            className="absolute inset-0 h-full w-full object-cover"
+          />
+        </div>
         <div className="space-y-3 rounded-2xl border border-ink-100 bg-white p-6">
           <p className="flex items-center gap-2 text-sm text-ink-700">
             <CalendarCheck size={16} className="text-brand-500" aria-hidden="true" /> {formatDate(event.date)}

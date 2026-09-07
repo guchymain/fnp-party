@@ -48,7 +48,7 @@ export default function Candidates() {
             <Link key={candidate.id} to={`/candidates/${candidate.id}`}>
               <Card className="flex flex-col items-start gap-3 hover:border-brand-300">
                 <div className="flex w-full items-start justify-between gap-3">
-                  <Avatar name={candidate.name} tone="gold" />
+                  <Avatar name={candidate.name} tone="gold" src={candidate.photo} />
                   {candidate.verified && <VerifiedBadge />}
                 </div>
                 <div>

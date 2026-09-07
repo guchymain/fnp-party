@@ -1,6 +1,9 @@
+import { imagePool } from "./images.js";
+
 export const newsArticles = [
   {
     slug: "ward-congresses-conclude",
+    cover: imagePool.auditorium,
     title: "Ward Congresses Conclude in All 36 States and the FCT",
     date: "2026-08-14",
     category: "Party News",
@@ -10,6 +13,7 @@ export const newsArticles = [
   },
   {
     slug: "manifesto-launch-eight-pillars",
+    cover: imagePool.seminarSpeaker,
     title: "FNP Launches Eight-Pillar National Manifesto",
     date: "2026-07-02",
     category: "Policy",
@@ -19,6 +23,7 @@ export const newsArticles = [
   },
   {
     slug: "womens-mentorship-program",
+    cover: imagePool.womenLaptop,
     title: "Women Leaders' Mentorship Program Opens Applications",
     date: "2026-06-20",
     category: "Party News",
@@ -28,6 +33,7 @@ export const newsArticles = [
   },
   {
     slug: "transparency-report-q2",
+    cover: imagePool.presentation,
     title: "Second-Quarter Transparency Report Published",
     date: "2026-06-05",
     category: "Transparency",
@@ -37,6 +43,7 @@ export const newsArticles = [
   },
   {
     slug: "youth-digital-skills-drive",
+    cover: imagePool.studentsClass,
     title: "Youth Wing Launches Digital Skills Certification Drive",
     date: "2026-05-18",
     category: "Youth",
@@ -46,6 +53,7 @@ export const newsArticles = [
   },
   {
     slug: "farmer-registry-pilot",
+    cover: imagePool.riceField,
     title: "Party Backs Farmer Registry Pilot in Three States",
     date: "2026-04-30",
     category: "Policy",

@@ -1,15 +1,20 @@
 import { useState } from "react";
-import { ImageIcon } from "lucide-react";
+import { ZoomIn } from "lucide-react";
 import PageHeader from "../components/PageHeader.jsx";
 import Modal from "../components/Modal.jsx";
+import Photo from "../components/Photo.jsx";
+import { imagePool } from "../data/images.js";
 
 const galleryItems = [
-  { id: 1, caption: "Ward Congress — Ikeja, Lagos", tone: "bg-brand-400" },
-  { id: 2, caption: "Volunteer Orientation — Abuja", tone: "bg-gold-300" },
-  { id: 3, caption: "Town Hall — Port Harcourt", tone: "bg-brand-600" },
-  { id: 4, caption: "Manifesto Launch — Abuja", tone: "bg-brand-300" },
-  { id: 5, caption: "Youth Bootcamp — Kano", tone: "bg-gold-400" },
-  { id: 6, caption: "Women's Mentorship Kickoff — Enugu", tone: "bg-brand-500" },
+  { id: 1, caption: "Ward Congress — Ikeja, Lagos", src: imagePool.auditorium },
+  { id: 2, caption: "Volunteer Orientation — Abuja", src: imagePool.conferenceHall },
+  { id: 3, caption: "Town Hall — Port Harcourt", src: imagePool.presentation },
+  { id: 4, caption: "Manifesto Launch — Abuja", src: imagePool.seminarSpeaker },
+  { id: 5, caption: "Youth Bootcamp — Kano", src: imagePool.studentsClass },
+  { id: 6, caption: "Women's Mentorship Kickoff — Enugu", src: imagePool.womenLaptop },
+  { id: 7, caption: "Rally in Support of Grassroots Movement", src: imagePool.crowdFlags },
+  { id: 8, caption: "Volunteers on the Streets of Lagos", src: imagePool.streetCrowd },
+  { id: 9, caption: "Farmers' Town Hall — Makurdi, Benue", src: imagePool.riceField },
 ];
 
 export default function Gallery() {
@@ -25,10 +30,20 @@ export default function Gallery() {
               key={item.id}
               type="button"
               onClick={() => setActive(item)}
-              className={`group relative flex aspect-video items-center justify-center rounded-2xl ${item.tone} text-white`}
+              className="group relative flex aspect-video items-center justify-center overflow-hidden rounded-2xl bg-ink-100"
             >
-              <ImageIcon size={32} aria-hidden="true" className="opacity-70" />
-              <span className="absolute inset-x-0 bottom-0 rounded-b-2xl bg-black/40 px-3 py-2 text-left text-sm font-medium">
+              <Photo
+                src={item.src}
+                alt={item.caption}
+                loading="lazy"
+                decoding="async"
+                className="absolute inset-0 h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
+              />
+              <span className="absolute inset-0 bg-ink-900/0 transition-colors duration-300 group-hover:bg-ink-900/30" />
+              <span className="absolute right-3 top-3 flex h-8 w-8 items-center justify-center rounded-full bg-white/90 text-ink-900 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+                <ZoomIn size={16} aria-hidden="true" />
+              </span>
+              <span className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 to-transparent px-3 pb-2 pt-8 text-left text-sm font-medium text-white">
                 {item.caption}
               </span>
             </button>
@@ -37,9 +52,13 @@ export default function Gallery() {
       </section>
 
       {active && (
-        <Modal title={active.caption} onClose={() => setActive(null)}>
-          <div className={`flex aspect-video items-center justify-center rounded-xl ${active.tone} text-white`}>
-            <ImageIcon size={48} aria-hidden="true" className="opacity-70" />
+        <Modal title={active.caption} onClose={() => setActive(null)} size="lg">
+          <div className="relative aspect-video overflow-hidden rounded-xl bg-ink-100">
+            <Photo
+              src={active.src}
+              alt={active.caption}
+              className="absolute inset-0 h-full w-full object-cover"
+            />
           </div>
           <p className="mt-3 text-sm text-ink-600">{active.caption}</p>
         </Modal>

@@ -1,5 +1,15 @@
 import { Link } from "react-router-dom";
-import { ArrowRight, HandHeart, HeartHandshake, UserPlus } from "lucide-react";
+import {
+  ArrowRight,
+  Building2,
+  Flag,
+  Grid2x2,
+  HandHeart,
+  HeartHandshake,
+  Quote,
+  UserPlus,
+  Users,
+} from "lucide-react";
 import Button from "../components/Button.jsx";
 import SectionHeading from "../components/SectionHeading.jsx";
 import StatCard from "../components/StatCard.jsx";
@@ -9,17 +19,19 @@ import NewsCard from "../components/NewsCard.jsx";
 import EventCard from "../components/EventCard.jsx";
 import LeaderCard from "../components/LeaderCard.jsx";
 import HeroSlideshow from "../components/HeroSlideshow.jsx";
+import Photo from "../components/Photo.jsx";
 import { manifestoPillars } from "../data/manifesto.js";
 import { newsArticles } from "../data/news.js";
 import { events } from "../data/events.js";
 import { nationalOfficers } from "../data/leadership.js";
 import { heroSlides } from "../data/heroSlides.js";
+import { imagePool } from "../data/images.js";
 
 const stats = [
-  { value: "37", label: "State chapters incl. FCT" },
-  { value: "774", label: "LGAs organizing" },
-  { value: "50k+", label: "Registered members" },
-  { value: "8", label: "Manifesto pillars" },
+  { value: "37", label: "State chapters incl. FCT", icon: Building2 },
+  { value: "774", label: "LGAs organizing", icon: Grid2x2 },
+  { value: "50k+", label: "Registered members", icon: Users },
+  { value: "8", label: "Manifesto pillars", icon: Flag },
 ];
 
 export default function Home() {
@@ -66,8 +78,8 @@ export default function Home() {
         />
         <div className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {manifestoPillars.slice(0, 3).map((pillar) => (
-            <Card key={pillar.slug} as={Link} to={`/manifesto/${pillar.slug}`} className="hover:border-brand-300">
-              <div className="mb-3 flex h-11 w-11 items-center justify-center rounded-xl bg-brand-50 text-brand-600">
+            <Card key={pillar.slug} as={Link} to={`/manifesto/${pillar.slug}`} className="group hover:border-brand-300">
+              <div className="mb-3 flex h-11 w-11 items-center justify-center rounded-xl bg-brand-50 text-brand-600 transition-colors group-hover:bg-brand-500 group-hover:text-white">
                 <DynamicIcon name={pillar.icon} size={22} aria-hidden="true" />
               </div>
               <h3 className="font-display text-lg font-bold text-ink-900">{pillar.title}</h3>
@@ -113,6 +125,27 @@ export default function Home() {
         </div>
       </section>
 
+      <section className="relative overflow-hidden">
+        <div className="absolute inset-0" aria-hidden="true">
+          <Photo
+            src={imagePool.plazaGathering}
+            alt=""
+            className="absolute inset-0 h-full w-full object-cover"
+          />
+          <div className="absolute inset-0 bg-ink-900/80" />
+        </div>
+        <div className="relative mx-auto max-w-4xl px-4 py-20 text-center text-white sm:px-6">
+          <Quote className="mx-auto mb-4 text-gold-300" size={32} aria-hidden="true" />
+          <p className="font-display text-2xl font-bold leading-snug sm:text-3xl">
+            Everything we do is built from the ward up — because the people who know their
+            community best should be the ones deciding its future.
+          </p>
+          <p className="mt-4 text-sm font-semibold uppercase tracking-wide text-brand-100">
+            Amina T. Balogun — National Chairman
+          </p>
+        </div>
+      </section>
+
       <section className="mx-auto max-w-[1920px] px-4 py-16 sm:px-6">
         <SectionHeading eyebrow="Leadership" title="Meet the National Working Committee" align="center" />
         <div className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
@@ -127,30 +160,44 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="bg-ink-900 py-16">
-        <div className="mx-auto max-w-[1920px] px-4 sm:px-6">
+      <section className="relative isolate overflow-hidden bg-ink-900 py-16">
+        <div className="absolute inset-0" aria-hidden="true">
+          <Photo
+            src={imagePool.crowdFlags}
+            alt=""
+            className="absolute inset-0 h-full w-full object-cover"
+          />
+          <div className="absolute inset-0 bg-ink-900/85" />
+        </div>
+        <div className="relative mx-auto max-w-[1920px] px-4 sm:px-6">
           <SectionHeading
             eyebrow="Get Involved"
             title="Three ways to move the party forward"
             align="center"
           />
           <div className="mt-8 grid gap-5 sm:grid-cols-3">
-            <div className="rounded-2xl bg-white/5 p-6 text-center text-white">
-              <UserPlus className="mx-auto mb-3 text-gold-300" size={28} aria-hidden="true" />
+            <div className="rounded-2xl bg-white/5 p-6 text-center text-white backdrop-blur-sm">
+              <div className="mx-auto mb-3 flex h-12 w-12 items-center justify-center rounded-full bg-gold-300/20 text-gold-300">
+                <UserPlus size={24} aria-hidden="true" />
+              </div>
               <h3 className="font-display text-lg font-bold">Become a Member</h3>
               <p className="mt-2 text-sm text-white/70">Join your ward chapter in minutes.</p>
               <Button to="/join" variant="gold" className="mt-4">Join FNP</Button>
             </div>
-            <div className="rounded-2xl bg-white/5 p-6 text-center text-white">
-              <HandHeart className="mx-auto mb-3 text-gold-300" size={28} aria-hidden="true" />
+            <div className="rounded-2xl bg-white/5 p-6 text-center text-white backdrop-blur-sm">
+              <div className="mx-auto mb-3 flex h-12 w-12 items-center justify-center rounded-full bg-gold-300/20 text-gold-300">
+                <HandHeart size={24} aria-hidden="true" />
+              </div>
               <h3 className="font-display text-lg font-bold">Volunteer</h3>
               <p className="mt-2 text-sm text-white/70">Give your skills and time locally.</p>
               <Button to="/volunteer" variant="outline" className="mt-4 border-white text-white hover:bg-white/10">
                 Volunteer
               </Button>
             </div>
-            <div className="rounded-2xl bg-white/5 p-6 text-center text-white">
-              <HeartHandshake className="mx-auto mb-3 text-gold-300" size={28} aria-hidden="true" />
+            <div className="rounded-2xl bg-white/5 p-6 text-center text-white backdrop-blur-sm">
+              <div className="mx-auto mb-3 flex h-12 w-12 items-center justify-center rounded-full bg-gold-300/20 text-gold-300">
+                <HeartHandshake size={24} aria-hidden="true" />
+              </div>
               <h3 className="font-display text-lg font-bold">Donate</h3>
               <p className="mt-2 text-sm text-white/70">Fund grassroots organizing, transparently.</p>
               <Button to="/donate" variant="outline" className="mt-4 border-white text-white hover:bg-white/10">

@@ -2,11 +2,11 @@ import Avatar from "./Avatar.jsx";
 import { VerifiedBadge } from "./Badge.jsx";
 import Card from "./Card.jsx";
 
-export default function LeaderCard({ name, role, state, bio, verified }) {
+export default function LeaderCard({ name, role, state, bio, verified, photo }) {
   return (
     <Card className="flex flex-col items-start gap-3">
       <div className="flex w-full items-start justify-between gap-3">
-        <Avatar name={name} />
+        <Avatar name={name} src={photo} />
         {verified && <VerifiedBadge />}
       </div>
       <div>

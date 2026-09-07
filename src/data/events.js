@@ -1,6 +1,9 @@
+import { imagePool } from "./images.js";
+
 export const events = [
   {
     slug: "lga-town-hall-ikeja",
+    image: imagePool.presentation,
     title: "LGA Town Hall — Ikeja",
     date: "2026-09-20",
     time: "10:00 AM",
@@ -12,6 +15,7 @@ export const events = [
   },
   {
     slug: "volunteer-orientation-abuja",
+    image: imagePool.conferenceHall,
     title: "New Volunteer Orientation — Abuja",
     date: "2026-09-27",
     time: "9:00 AM",
@@ -23,6 +27,7 @@ export const events = [
   },
   {
     slug: "womens-mentorship-kickoff",
+    image: imagePool.womenLaptop,
     title: "Women Leaders' Mentorship Kickoff",
     date: "2026-10-04",
     time: "11:00 AM",
@@ -34,6 +39,7 @@ export const events = [
   },
   {
     slug: "youth-digital-skills-bootcamp",
+    image: imagePool.studentsClass,
     title: "Youth Digital Skills Bootcamp — Kano",
     date: "2026-10-18",
     time: "10:00 AM",
@@ -45,6 +51,7 @@ export const events = [
   },
   {
     slug: "ward-congress-recap-ph",
+    image: imagePool.auditorium,
     title: "Ward Congress Recap & Feedback Session",
     date: "2026-08-09",
     time: "2:00 PM",
@@ -57,6 +64,7 @@ export const events = [
   },
   {
     slug: "manifesto-launch-abuja",
+    image: imagePool.seminarSpeaker,
     title: "National Manifesto Launch",
     date: "2026-07-02",
     time: "12:00 PM",
