@@ -20,7 +20,7 @@ export default function CandidateProfile() {
       <PageHeader eyebrow="Candidate" title={candidate.name} description={`${candidate.office} — ${candidate.state}`} />
       <section className="mx-auto max-w-2xl px-4 py-14 sm:px-6">
         <div className="flex items-center gap-4">
-          <Avatar name={candidate.name} size={72} tone="gold" />
+          <Avatar name={candidate.name} size={72} tone="gold" src={candidate.photo} />
           {candidate.verified && <VerifiedBadge label="Verified Candidate" />}
         </div>
         <p className="mt-6 text-ink-600">{candidate.bio}</p>
